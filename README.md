@@ -1,5 +1,6 @@
-# AUTO_KG_Generation
+# Automated Knowledge Graph Generation for Cross-Domain Recommendation Using Multi-Agent Systems
+------------------------------------------------------------------------------------------------
 
-Automated Knowledge Graph Generation For Cross-Domain Rec. using Multi-Agents
+This repository summarizes the end-to-end process described in the paper on 「Automaed Knowledge Graph Generation for Cross-Domain Recommendation Using Mult-Agent Systems」
 
 ![프로젝트 구조도](./img/AutomatedKG_Flow_3.drawio.png)
