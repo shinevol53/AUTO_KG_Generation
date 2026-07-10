@@ -15,37 +15,6 @@
 
 ## Architecture
 ![프로젝트 구조도](./img/AutomatedKG_Flow_3.drawio.png)
-```mermaid
-flowchart LR
-    subgraph SRC[SOURCE DOMAIN]
-        SD[User–Item Interactions]
-        SKG[Source Knowledge Graph]
-    end
-
-    subgraph EMB[Embedding]
-        TE[TransE Training]
-        VE[Entity / Relation Embeddings]
-    end
-
-    subgraph BRIDGE[Knowledge Transfer]
-        KB[KGBridge<br/>Knowledge-guided prompts]
-    end
-
-    subgraph TGT[TARGET DOMAIN]
-        TD[Target User–Item Sequences]
-        REC[Sequential Recommender]
-    end
-
-    SD --> SKG
-    SKG --> TE
-    TE --> VE
-    VE --> KB
-
-    TD --> REC
-    KB --> REC
-
-    REC --> OUT[Top-K Recommendations]
-```
 
 ## Multi-Agent KG Construction
 - Generator: RDF triple 후보 생성
@@ -55,36 +24,20 @@ flowchart LR
 - Expansion Moderator: 그래프 확장 여부 결정
 
 ![멀티에이전트 오케스트레이션](./img/멀티에이전트오케스트레이션.PNG)
-```mermaid
-flowchart LR
-    subgraph INPUT[Unstructured / Semi-structured Data]
-        T[Text, Metadata, Logs]
-    end
 
-    T --> G[Generator<br/>LLM-based triple generation]
-    G --> V[Verifier<br/>Structural & semantic checks]
-    V --> M[Validation Moderator<br/>Resolve conflicts & decisions]
-
-    M -->|Accept| KG_PARTIAL[Candidate KG]
-    M -->|Revise| G
-    M -->|Reject| P[Pruner<br/>Remove low-quality triples]
-
-    P --> KG_PARTIAL
-
-    KG_PARTIAL --> X[Expansion Moderator<br/>Discover missing relations]
-    X --> G
-
-    KG_PARTIAL --> KG_FINAL[Constructed Knowledge Graph]
-```
 ## Embedding Transfer
 구축된 source KG는 TransE로 임베딩되며, 이후 KGBridge를 통해 target sequential recommendation에 반영됩니다.
 
 ## Experimental Setting
+
 - Dataset: Amazon Books, Movie/TV
-- Source KG construction: Amazon metadata + LLM-based agent pipeline
+- Source KG construction: Amazon metadata + LLM-based multi-agent pipeline
 - Embedding model: TransE
 - Downstream recommender: KGBridge
 - Metrics: Recall, NDCG, MRR
+
+실험에서는 위 설정하에서 정형(구조화) 트리플과 비정형(비정형 데이터 기반) 트리플의 구성 비율을 여러 수준으로 바꾸어, 각 구성에 대해 동일한 추천 모델의 성능을 비교하였다.
+
 
 ## Key Findings
 실험 결과, 전이 비율이 무조건 높을수록 좋은 것은 아니며, 중간 수준의 transfer setting이 더 안정적인 성능을 보였습니다. 이는 cross-domain 구조 전이에서 정보량보다 관계 정합성과 의미 보존이 더 중요함을 시사합니다.
