@@ -2,10 +2,95 @@
 
 
 ------------------------------------------------------------------------------------------------
-This repository summarizes the end-to-end process described in the paper on "Automated Knowledge Graph Generation for Cross-Domain Recommendation Using Mult-Agent Systems".
+## Overview
+이 프로젝트는 멀티 에이전트 기반 LLM 협업을 활용해 cross-domain recommendation을 위한 knowledge graph를 자동 구축하는 방법론을 제안합니다. 생성된 KG는 source domain의 구조적 의미를 보존한 채 embedding space로 전이되며, target domain 추천 모델의 성능 향상에 활용됩니다.
 
+## Motivation
+기존 CDR 방법은 사용자/아이템 상호작용 전이에 집중하는 경우가 많아, 도메인 간 관계 의미와 스키마 차이를 충분히 반영하지 못합니다. 특히 heterogeneous relation distribution, naming convention 차이, schema granularity 문제는 직접적인 전이를 어렵게 만듭니다.
+
+## Proposed Method
+제안 방법론은 두 단계로 구성됩니다.
+1. Multi-agent based KG construction
+2. KG embedding transfer for target recommendation
+
+## Architecture
+![프로젝트 구조도](./img/AutomatedKG_Flow_3.drawio.png)
+```mermaid
+flowchart LR
+    subgraph SRC[SOURCE DOMAIN]
+        SD[User–Item Interactions]
+        SKG[Source Knowledge Graph]
+    end
+
+    subgraph EMB[Embedding]
+        TE[TransE Training]
+        VE[Entity / Relation Embeddings]
+    end
+
+    subgraph BRIDGE[Knowledge Transfer]
+        KB[KGBridge<br/>Knowledge-guided prompts]
+    end
+
+    subgraph TGT[TARGET DOMAIN]
+        TD[Target User–Item Sequences]
+        REC[Sequential Recommender]
+    end
+
+    SD --> SKG
+    SKG --> TE
+    TE --> VE
+    VE --> KB
+
+    TD --> REC
+    KB --> REC
+
+    REC --> OUT[Top-K Recommendations]
+```
+
+## Multi-Agent KG Construction
+- Generator: RDF triple 후보 생성
+- Verifier: triple의 구조 및 의미 검증
+- Validation Moderator: 검증 결과 조정
+- Pruner: 저품질/중복 triple 제거
+- Expansion Moderator: 그래프 확장 여부 결정
 
 ![멀티에이전트 오케스트레이션](./img/멀티에이전트오케스트레이션.PNG)
+```mermaid
+flowchart LR
+    subgraph INPUT[Unstructured / Semi-structured Data]
+        T[Text, Metadata, Logs]
+    end
 
-![프로젝트 구조도](./img/AutomatedKG_Flow_3.drawio.png)
+    T --> G[Generator<br/>LLM-based triple generation]
+    G --> V[Verifier<br/>Structural & semantic checks]
+    V --> M[Validation Moderator<br/>Resolve conflicts & decisions]
+
+    M -->|Accept| KG_PARTIAL[Candidate KG]
+    M -->|Revise| G
+    M -->|Reject| P[Pruner<br/>Remove low-quality triples]
+
+    P --> KG_PARTIAL
+
+    KG_PARTIAL --> X[Expansion Moderator<br/>Discover missing relations]
+    X --> G
+
+    KG_PARTIAL --> KG_FINAL[Constructed Knowledge Graph]
+```
+## Embedding Transfer
+구축된 source KG는 TransE로 임베딩되며, 이후 KGBridge를 통해 target sequential recommendation에 반영됩니다.
+
+## Experimental Setting
+- Dataset: Amazon Books, Movie/TV
+- Source KG construction: Amazon metadata + LLM-based agent pipeline
+- Embedding model: TransE
+- Downstream recommender: KGBridge
+- Metrics: Recall, NDCG, MRR
+
+## Key Findings
+실험 결과, 전이 비율이 무조건 높을수록 좋은 것은 아니며, 중간 수준의 transfer setting이 더 안정적인 성능을 보였습니다. 이는 cross-domain 구조 전이에서 정보량보다 관계 정합성과 의미 보존이 더 중요함을 시사합니다.
+
+## Contributions
+- Multi-agent 기반 KG 자동 구축 프레임워크 제안
+- Cross-domain recommendation을 위한 KG embedding transfer 설계
+- 구조적 이질성과 의미 정합성 문제를 실험적으로 분석
 
