@@ -3,10 +3,10 @@
 
 ------------------------------------------------------------------------------------------------
 ## Overview
-이 프로젝트는 멀티 에이전트 기반 LLM 협업을 활용해 cross-domain recommendation을 위한 knowledge graph를 자동 구축하는 방법론을 제안합니다. 생성된 KG는 source domain의 구조적 의미를 보존한 채 embedding space로 전이되며, target domain 추천 모델의 성능 향상에 활용됩니다.
+이 프로젝트는 멀티 에이전트 기반 LLM 협업을 활용해 교차 도메인 추천을 위한 지식 그래프(Kknowledge Graph, KG)를 자동 구축하는 방법론을 제안합니다. 생성된 KG는 source domain의 구조적 의미를 보존한 채 embedding space로 전이되며, target domain 추천 모델의 성능 향상에 활용됩니다.
 
 ## Motivation
-기존 CDR 방법은 사용자/아이템 상호작용 전이에 집중하는 경우가 많아, 도메인 간 관계 의미와 스키마 차이를 충분히 반영하지 못합니다. 특히 heterogeneous relation distribution, naming convention 차이, schema granularity 문제는 직접적인 전이를 어렵게 만듭니다.
+기존 CDR 방법은 사용자/아이템 상호작용 전이에 집중하는 경우가 많아, 콜드 스타트 환경 시 적합한 추천에 어려움을 겪습니다. 이에 구조화된 형식과 풍부한 의미를 갖는 KG를 활용하고 관계 기반 임베딩 방법이 대안으로 활용되지만, 구조화된 DB 와 전문화된 언어 쿼리 사용 및 연구자/전문가의 수동 개입이 필수적으로 고려되어 교차 도메인 추천용 KG 구축에 어려움을 겪습니다. 이에 멀티 에이전트를 활용하여 고차원적인 작업인 교차 도메인 추천 시스템용 KG 구축 자동화를 제안합니다.
 
 ## Proposed Method
 제안 방법론은 두 단계로 구성됩니다.
