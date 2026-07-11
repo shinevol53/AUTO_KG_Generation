@@ -1,0 +1,830 @@
+=== model training parameter configuration ===
+device              : cpu
+seed                : 608
+dataset             : AM-MB
+A_domain            : Amazon-KG-5core-Books
+B_domain            : Amazon-KG-5core-Movies_and_TV
+epoch               : 200
+batch_size          : 128
+patience            : 10
+hidden_units        : 100
+maxlen              : 15
+min_len             : 0
+A_size              : 8318
+B_size              : 4779
+all_size            : 13097
+lr                  : 0.0001
+lr_decline          : False
+dropout_rate        : 0.45
+Lambda              : 0.002
+n_heads             : 1
+n_layers            : 1
+d_k                 : 100
+d_v                 : 100
+d_ff                : 2048
+Strategy            : default
+pretrained_embedding_path: pretrain/transE/
+prompt_num_S        : 2
+prompt_num          : 2
+prompt_agg          : mean_noise
+prompt_agg_use_all  : False
+use_KG              : True
+use_shared          : True
+use_spec            : True
+use_disen           : True
+disen_way           : info
+freeze_shared_prompt: True
+freeze_model        : False
+=========================
+Loading pre-training set data......
+Users_a end at 94601
+Users_b start at 84118
+Loading pre-training set data......
+Users_a end at 10484
+Users_b start at 10485
+========prompt_agg_use_all=False========
+[KG] common.rel: 393 relations, specific.rel: 2106 relations
+--------------------
+Epoch 1/200
+--------------------
+Loss: 8.78133487701416
+Recall3: 0.00892; MRR3: 0.00559
+Recall5: 0.01255; MRR5: 0.00636
+Recall10: 0.01858; MRR10: 0.00711
+Recall20: 0.03254; MRR20: 0.00807
+New best Recall@10: 0.01858, model updated.
+--------------------
+Epoch 2/200
+--------------------
+Loss: 8.85840129852295
+Recall3: 0.00671; MRR3: 0.00524
+Recall5: 0.01120; MRR5: 0.00631
+Recall10: 0.01956; MRR10: 0.00736
+Recall20: 0.03199; MRR20: 0.00824
+New best Recall@10: 0.01956, model updated.
+--------------------
+Epoch 3/200
+--------------------
+Loss: 8.368459701538086
+Recall3: 0.01027; MRR3: 0.00673
+Recall5: 0.01526; MRR5: 0.00787
+Recall10: 0.02448; MRR10: 0.00907
+Recall20: 0.03931; MRR20: 0.01012
+New best Recall@10: 0.02448, model updated.
+--------------------
+Epoch 4/200
+--------------------
+Loss: 7.9821038246154785
+Recall3: 0.01366; MRR3: 0.00813
+Recall5: 0.01882; MRR5: 0.00931
+Recall10: 0.03033; MRR10: 0.01079
+Recall20: 0.05124; MRR20: 0.01217
+New best Recall@10: 0.03033, model updated.
+--------------------
+Epoch 5/200
+--------------------
+Loss: 7.732822895050049
+Recall3: 0.01458; MRR3: 0.00964
+Recall5: 0.02122; MRR5: 0.01114
+Recall10: 0.03602; MRR10: 0.01308
+Recall20: 0.06229; MRR20: 0.01484
+New best Recall@10: 0.03602, model updated.
+--------------------
+Epoch 6/200
+--------------------
+Loss: 8.200222969055176
+Recall3: 0.01587; MRR3: 0.01021
+Recall5: 0.02387; MRR5: 0.01203
+Recall10: 0.03968; MRR10: 0.01410
+Recall20: 0.06791; MRR20: 0.01600
+New best Recall@10: 0.03968, model updated.
+--------------------
+Epoch 7/200
+--------------------
+Loss: 8.372312545776367
+Recall3: 0.01993; MRR3: 0.01244
+Recall5: 0.02934; MRR5: 0.01455
+Recall10: 0.04571; MRR10: 0.01670
+Recall20: 0.07462; MRR20: 0.01865
+New best Recall@10: 0.04571, model updated.
+--------------------
+Epoch 8/200
+--------------------
+Loss: 7.919276237487793
+Recall3: 0.02442; MRR3: 0.01549
+Recall5: 0.03457; MRR5: 0.01782
+Recall10: 0.05358; MRR10: 0.02032
+Recall20: 0.08641; MRR20: 0.02258
+New best Recall@10: 0.05358, model updated.
+--------------------
+Epoch 9/200
+--------------------
+Loss: 7.875736713409424
+Recall3: 0.02559; MRR3: 0.01709
+Recall5: 0.03894; MRR5: 0.02010
+Recall10: 0.05844; MRR10: 0.02266
+Recall20: 0.09486; MRR20: 0.02509
+New best Recall@10: 0.05844, model updated.
+--------------------
+Epoch 10/200
+--------------------
+Loss: 8.066606521606445
+Recall3: 0.02578; MRR3: 0.01728
+Recall5: 0.03974; MRR5: 0.02046
+Recall10: 0.06207; MRR10: 0.02336
+Recall20: 0.10009; MRR20: 0.02592
+New best Recall@10: 0.06207, model updated.
+--------------------
+Epoch 11/200
+--------------------
+Loss: 7.776600360870361
+Recall3: 0.02737; MRR3: 0.01818
+Recall5: 0.04078; MRR5: 0.02118
+Recall10: 0.06754; MRR10: 0.02465
+Recall20: 0.10864; MRR20: 0.02740
+New best Recall@10: 0.06754, model updated.
+--------------------
+Epoch 12/200
+--------------------
+Loss: 7.871278285980225
+Recall3: 0.02860; MRR3: 0.01875
+Recall5: 0.04334; MRR5: 0.02215
+Recall10: 0.07096; MRR10: 0.02577
+Recall20: 0.11656; MRR20: 0.02886
+New best Recall@10: 0.07096, model updated.
+--------------------
+Epoch 13/200
+--------------------
+Loss: 7.76151704788208
+Recall3: 0.03070; MRR3: 0.01981
+Recall5: 0.04454; MRR5: 0.02296
+Recall10: 0.07388; MRR10: 0.02676
+Recall20: 0.11655; MRR20: 0.02967
+New best Recall@10: 0.07388, model updated.
+--------------------
+Epoch 14/200
+--------------------
+Loss: 7.9983601570129395
+Recall3: 0.03205; MRR3: 0.02121
+Recall5: 0.04589; MRR5: 0.02436
+Recall10: 0.07511; MRR10: 0.02821
+Recall20: 0.11934; MRR20: 0.03124
+New best Recall@10: 0.07511, model updated.
+--------------------
+Epoch 15/200
+--------------------
+Loss: 8.678132057189941
+Recall3: 0.03223; MRR3: 0.02190
+Recall5: 0.04601; MRR5: 0.02501
+Recall10: 0.07530; MRR10: 0.02889
+Recall20: 0.12104; MRR20: 0.03203
+New best Recall@10: 0.07530, model updated.
+--------------------
+Epoch 16/200
+--------------------
+Loss: 7.660872936248779
+Recall3: 0.03371; MRR3: 0.02281
+Recall5: 0.04950; MRR5: 0.02635
+Recall10: 0.08340; MRR10: 0.03076
+Recall20: 0.12763; MRR20: 0.03380
+New best Recall@10: 0.08340, model updated.
+--------------------
+Epoch 17/200
+--------------------
+Loss: 7.26577615737915
+Recall3: 0.03584; MRR3: 0.02530
+Recall5: 0.05042; MRR5: 0.02862
+Recall10: 0.08130; MRR10: 0.03268
+Recall20: 0.12725; MRR20: 0.03584
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 18/200
+--------------------
+Loss: 7.382901668548584
+Recall3: 0.03531; MRR3: 0.02487
+Recall5: 0.05094; MRR5: 0.02840
+Recall10: 0.08342; MRR10: 0.03261
+Recall20: 0.13060; MRR20: 0.03588
+New best Recall@10: 0.08342, model updated.
+--------------------
+Epoch 19/200
+--------------------
+Loss: 7.481245517730713
+Recall3: 0.03978; MRR3: 0.02617
+Recall5: 0.05472; MRR5: 0.02951
+Recall10: 0.08684; MRR10: 0.03367
+Recall20: 0.13556; MRR20: 0.03699
+New best Recall@10: 0.08684, model updated.
+--------------------
+Epoch 20/200
+--------------------
+Loss: 7.279373645782471
+Recall3: 0.03839; MRR3: 0.02653
+Recall5: 0.05370; MRR5: 0.02998
+Recall10: 0.08729; MRR10: 0.03438
+Recall20: 0.13786; MRR20: 0.03784
+New best Recall@10: 0.08729, model updated.
+--------------------
+Epoch 21/200
+--------------------
+Loss: 7.054485321044922
+Recall3: 0.04017; MRR3: 0.02688
+Recall5: 0.05604; MRR5: 0.03049
+Recall10: 0.09110; MRR10: 0.03508
+Recall20: 0.14112; MRR20: 0.03851
+New best Recall@10: 0.09110, model updated.
+--------------------
+Epoch 22/200
+--------------------
+Loss: 8.300753593444824
+Recall3: 0.03937; MRR3: 0.02647
+Recall5: 0.05659; MRR5: 0.03036
+Recall10: 0.09190; MRR10: 0.03501
+Recall20: 0.14491; MRR20: 0.03862
+New best Recall@10: 0.09190, model updated.
+--------------------
+Epoch 23/200
+--------------------
+Loss: 7.3131422996521
+Recall3: 0.04347; MRR3: 0.02867
+Recall5: 0.06008; MRR5: 0.03242
+Recall10: 0.09619; MRR10: 0.03718
+Recall20: 0.14835; MRR20: 0.04074
+New best Recall@10: 0.09619, model updated.
+--------------------
+Epoch 24/200
+--------------------
+Loss: 7.986251354217529
+Recall3: 0.04384; MRR3: 0.02975
+Recall5: 0.06300; MRR5: 0.03413
+Recall10: 0.09973; MRR10: 0.03893
+Recall20: 0.15023; MRR20: 0.04237
+New best Recall@10: 0.09973, model updated.
+--------------------
+Epoch 25/200
+--------------------
+Loss: 7.018636226654053
+Recall3: 0.04361; MRR3: 0.02862
+Recall5: 0.06115; MRR5: 0.03268
+Recall10: 0.10156; MRR10: 0.03796
+Recall20: 0.15186; MRR20: 0.04135
+New best Recall@10: 0.10156, model updated.
+--------------------
+Epoch 26/200
+--------------------
+Loss: 7.035325050354004
+Recall3: 0.04552; MRR3: 0.03008
+Recall5: 0.06385; MRR5: 0.03423
+Recall10: 0.10144; MRR10: 0.03919
+Recall20: 0.15493; MRR20: 0.04284
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 27/200
+--------------------
+Loss: 7.822818279266357
+Recall3: 0.04472; MRR3: 0.02981
+Recall5: 0.06336; MRR5: 0.03403
+Recall10: 0.10144; MRR10: 0.03907
+Recall20: 0.15623; MRR20: 0.04280
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 28/200
+--------------------
+Loss: 6.328961372375488
+Recall3: 0.04515; MRR3: 0.02935
+Recall5: 0.06293; MRR5: 0.03339
+Recall10: 0.10437; MRR10: 0.03885
+Recall20: 0.15678; MRR20: 0.04242
+New best Recall@10: 0.10437, model updated.
+--------------------
+Epoch 29/200
+--------------------
+Loss: 7.432044982910156
+Recall3: 0.04743; MRR3: 0.03122
+Recall5: 0.06736; MRR5: 0.03574
+Recall10: 0.10953; MRR10: 0.04128
+Recall20: 0.16481; MRR20: 0.04504
+New best Recall@10: 0.10953, model updated.
+--------------------
+Epoch 30/200
+--------------------
+Loss: 5.640933036804199
+Recall3: 0.04718; MRR3: 0.03029
+Recall5: 0.06533; MRR5: 0.03438
+Recall10: 0.10661; MRR10: 0.03981
+Recall20: 0.15982; MRR20: 0.04347
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 31/200
+--------------------
+Loss: 7.052990436553955
+Recall3: 0.04724; MRR3: 0.03136
+Recall5: 0.06828; MRR5: 0.03611
+Recall10: 0.10691; MRR10: 0.04124
+Recall20: 0.16296; MRR20: 0.04510
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 32/200
+--------------------
+Loss: 6.866387844085693
+Recall3: 0.04897; MRR3: 0.03206
+Recall5: 0.06908; MRR5: 0.03666
+Recall10: 0.10913; MRR10: 0.04191
+Recall20: 0.16499; MRR20: 0.04572
+No improvement in Recall@10. Patience counter: 3/10
+--------------------
+Epoch 33/200
+--------------------
+Loss: 6.539081573486328
+Recall3: 0.04663; MRR3: 0.03067
+Recall5: 0.06779; MRR5: 0.03547
+Recall10: 0.10913; MRR10: 0.04091
+Recall20: 0.16252; MRR20: 0.04455
+No improvement in Recall@10. Patience counter: 4/10
+--------------------
+Epoch 34/200
+--------------------
+Loss: 7.091683864593506
+Recall3: 0.04921; MRR3: 0.03198
+Recall5: 0.07025; MRR5: 0.03675
+Recall10: 0.11005; MRR10: 0.04201
+Recall20: 0.16791; MRR20: 0.04600
+New best Recall@10: 0.11005, model updated.
+--------------------
+Epoch 35/200
+--------------------
+Loss: 7.401470184326172
+Recall3: 0.04993; MRR3: 0.03251
+Recall5: 0.07109; MRR5: 0.03730
+Recall10: 0.11439; MRR10: 0.04297
+Recall20: 0.16930; MRR20: 0.04672
+New best Recall@10: 0.11439, model updated.
+--------------------
+Epoch 36/200
+--------------------
+Loss: 6.82171106338501
+Recall3: 0.04872; MRR3: 0.03204
+Recall5: 0.06896; MRR5: 0.03656
+Recall10: 0.11220; MRR10: 0.04219
+Recall20: 0.16693; MRR20: 0.04592
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 37/200
+--------------------
+Loss: 7.3940815925598145
+Recall3: 0.04909; MRR3: 0.03260
+Recall5: 0.06964; MRR5: 0.03726
+Recall10: 0.11134; MRR10: 0.04274
+Recall20: 0.16695; MRR20: 0.04653
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 38/200
+--------------------
+Loss: 6.707305908203125
+Recall3: 0.05146; MRR3: 0.03420
+Recall5: 0.07318; MRR5: 0.03907
+Recall10: 0.11532; MRR10: 0.04464
+Recall20: 0.17062; MRR20: 0.04841
+New best Recall@10: 0.11532, model updated.
+--------------------
+Epoch 39/200
+--------------------
+Loss: 6.0190300941467285
+Recall3: 0.05100; MRR3: 0.03345
+Recall5: 0.07210; MRR5: 0.03820
+Recall10: 0.11233; MRR10: 0.04348
+Recall20: 0.17414; MRR20: 0.04771
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 40/200
+--------------------
+Loss: 6.813786506652832
+Recall3: 0.05094; MRR3: 0.03365
+Recall5: 0.07271; MRR5: 0.03860
+Recall10: 0.11686; MRR10: 0.04442
+Recall20: 0.17314; MRR20: 0.04827
+New best Recall@10: 0.11686, model updated.
+--------------------
+Epoch 41/200
+--------------------
+Loss: 6.544976711273193
+Recall3: 0.05183; MRR3: 0.03456
+Recall5: 0.07404; MRR5: 0.03955
+Recall10: 0.11772; MRR10: 0.04524
+Recall20: 0.17386; MRR20: 0.04905
+New best Recall@10: 0.11772, model updated.
+--------------------
+Epoch 42/200
+--------------------
+Loss: 6.7779388427734375
+Recall3: 0.05094; MRR3: 0.03353
+Recall5: 0.07539; MRR5: 0.03900
+Recall10: 0.11556; MRR10: 0.04427
+Recall20: 0.17394; MRR20: 0.04827
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 43/200
+--------------------
+Loss: 7.2565693855285645
+Recall3: 0.04977; MRR3: 0.03320
+Recall5: 0.07265; MRR5: 0.03835
+Recall10: 0.11661; MRR10: 0.04407
+Recall20: 0.17283; MRR20: 0.04786
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 44/200
+--------------------
+Loss: 7.176283359527588
+Recall3: 0.05057; MRR3: 0.03339
+Recall5: 0.07117; MRR5: 0.03804
+Recall10: 0.11417; MRR10: 0.04371
+Recall20: 0.17101; MRR20: 0.04758
+No improvement in Recall@10. Patience counter: 3/10
+--------------------
+Epoch 45/200
+--------------------
+Loss: 6.135634422302246
+Recall3: 0.05180; MRR3: 0.03410
+Recall5: 0.07382; MRR5: 0.03916
+Recall10: 0.11473; MRR10: 0.04450
+Recall20: 0.17071; MRR20: 0.04830
+No improvement in Recall@10. Patience counter: 4/10
+--------------------
+Epoch 46/200
+--------------------
+Loss: 6.088569641113281
+Recall3: 0.05112; MRR3: 0.03449
+Recall5: 0.07595; MRR5: 0.04014
+Recall10: 0.11827; MRR10: 0.04566
+Recall20: 0.17308; MRR20: 0.04940
+New best Recall@10: 0.11827, model updated.
+--------------------
+Epoch 47/200
+--------------------
+Loss: 6.845953941345215
+Recall3: 0.05149; MRR3: 0.03456
+Recall5: 0.07406; MRR5: 0.03967
+Recall10: 0.11639; MRR10: 0.04521
+Recall20: 0.17188; MRR20: 0.04900
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 48/200
+--------------------
+Loss: 6.324878215789795
+Recall3: 0.05390; MRR3: 0.03560
+Recall5: 0.07586; MRR5: 0.04058
+Recall10: 0.11960; MRR10: 0.04637
+Recall20: 0.17662; MRR20: 0.05028
+New best Recall@10: 0.11960, model updated.
+--------------------
+Epoch 49/200
+--------------------
+Loss: 7.963184833526611
+Recall3: 0.05063; MRR3: 0.03451
+Recall5: 0.07302; MRR5: 0.03960
+Recall10: 0.11645; MRR10: 0.04530
+Recall20: 0.17292; MRR20: 0.04916
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 50/200
+--------------------
+Loss: 7.311011791229248
+Recall3: 0.05149; MRR3: 0.03532
+Recall5: 0.07456; MRR5: 0.04056
+Recall10: 0.11590; MRR10: 0.04597
+Recall20: 0.17517; MRR20: 0.04996
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 51/200
+--------------------
+Loss: 6.516106605529785
+Recall3: 0.05130; MRR3: 0.03478
+Recall5: 0.07234; MRR5: 0.03950
+Recall10: 0.11540; MRR10: 0.04519
+Recall20: 0.17486; MRR20: 0.04929
+No improvement in Recall@10. Patience counter: 3/10
+--------------------
+Epoch 52/200
+--------------------
+Loss: 7.080848217010498
+Recall3: 0.05192; MRR3: 0.03498
+Recall5: 0.07450; MRR5: 0.04008
+Recall10: 0.11547; MRR10: 0.04545
+Recall20: 0.17384; MRR20: 0.04944
+No improvement in Recall@10. Patience counter: 4/10
+--------------------
+Epoch 53/200
+--------------------
+Loss: 7.994441986083984
+Recall3: 0.04946; MRR3: 0.03443
+Recall5: 0.07234; MRR5: 0.03965
+Recall10: 0.11608; MRR10: 0.04544
+Recall20: 0.17224; MRR20: 0.04930
+No improvement in Recall@10. Patience counter: 5/10
+--------------------
+Epoch 54/200
+--------------------
+Loss: 6.36205530166626
+Recall3: 0.05140; MRR3: 0.03472
+Recall5: 0.07432; MRR5: 0.03987
+Recall10: 0.11603; MRR10: 0.04542
+Recall20: 0.17564; MRR20: 0.04953
+No improvement in Recall@10. Patience counter: 6/10
+--------------------
+Epoch 55/200
+--------------------
+Loss: 8.323921203613281
+Recall3: 0.05149; MRR3: 0.03528
+Recall5: 0.07486; MRR5: 0.04052
+Recall10: 0.11620; MRR10: 0.04592
+Recall20: 0.17434; MRR20: 0.04992
+No improvement in Recall@10. Patience counter: 7/10
+--------------------
+Epoch 56/200
+--------------------
+Loss: 6.486725330352783
+Recall3: 0.05180; MRR3: 0.03488
+Recall5: 0.07357; MRR5: 0.03981
+Recall10: 0.11540; MRR10: 0.04531
+Recall20: 0.17366; MRR20: 0.04929
+No improvement in Recall@10. Patience counter: 8/10
+--------------------
+Epoch 57/200
+--------------------
+Loss: 6.117129802703857
+Recall3: 0.05057; MRR3: 0.03481
+Recall5: 0.07271; MRR5: 0.03978
+Recall10: 0.11479; MRR10: 0.04532
+Recall20: 0.17311; MRR20: 0.04934
+No improvement in Recall@10. Patience counter: 9/10
+--------------------
+Epoch 58/200
+--------------------
+Loss: 7.826318264007568
+Recall3: 0.04995; MRR3: 0.03476
+Recall5: 0.07259; MRR5: 0.03988
+Recall10: 0.11636; MRR10: 0.04560
+Recall20: 0.17382; MRR20: 0.04959
+No improvement in Recall@10. Patience counter: 10/10
+Early stopping triggered. Best Recall@10: 0.11960
+****************************************
+
+Loading fine-tuning set data......
+Users_a end at 94601
+Loading fine-tuning set data......
+Users_a end at 10484
+Loading fine-tuning set data......
+Users_a end at 10484
+--------------------
+Epoch 1/200
+--------------------
+Loss: 6.222822666168213 Loss_diff 0.7654824256896973
+Recall3_b: 0.04920; Mrr3: 0.03380
+Recall5_b: 0.07180; Mrr5: 0.03897
+Recall10_b: 0.11318; Mrr10: 0.04437
+Recall20_b: 0.16972; Mrr20: 0.04828
+New best Recall@10: 0.11318 at Epoch 1
+--------------------
+Epoch 2/200
+--------------------
+Loss: 6.770450115203857 Loss_diff 0.7591273188591003
+Recall3_b: 0.05021; Mrr3: 0.03397
+Recall5_b: 0.07185; Mrr5: 0.03888
+Recall10_b: 0.11343; Mrr10: 0.04442
+Recall20_b: 0.17181; Mrr20: 0.04840
+New best Recall@10: 0.11343 at Epoch 2
+--------------------
+Epoch 3/200
+--------------------
+Loss: 6.227721691131592 Loss_diff 0.7532310485839844
+Recall3_b: 0.05057; Mrr3: 0.03438
+Recall5_b: 0.07232; Mrr5: 0.03929
+Recall10_b: 0.11382; Mrr10: 0.04478
+Recall20_b: 0.16941; Mrr20: 0.04861
+New best Recall@10: 0.11382 at Epoch 3
+--------------------
+Epoch 4/200
+--------------------
+Loss: 5.8936638832092285 Loss_diff 0.7472007274627686
+Recall3_b: 0.05150; Mrr3: 0.03434
+Recall5_b: 0.07439; Mrr5: 0.03954
+Recall10_b: 0.11607; Mrr10: 0.04495
+Recall20_b: 0.17300; Mrr20: 0.04883
+New best Recall@10: 0.11607 at Epoch 4
+--------------------
+Epoch 5/200
+--------------------
+Loss: 6.121238708496094 Loss_diff 0.7411113977432251
+Recall3_b: 0.05311; Mrr3: 0.03536
+Recall5_b: 0.07218; Mrr5: 0.03969
+Recall10_b: 0.11481; Mrr10: 0.04527
+Recall20_b: 0.17166; Mrr20: 0.04916
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 6/200
+--------------------
+Loss: 6.124996185302734 Loss_diff 0.735526442527771
+Recall3_b: 0.05136; Mrr3: 0.03500
+Recall5_b: 0.07264; Mrr5: 0.03981
+Recall10_b: 0.11501; Mrr10: 0.04539
+Recall20_b: 0.17102; Mrr20: 0.04925
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 7/200
+--------------------
+Loss: 6.690741062164307 Loss_diff 0.7297677993774414
+Recall3_b: 0.05226; Mrr3: 0.03477
+Recall5_b: 0.07342; Mrr5: 0.03954
+Recall10_b: 0.11360; Mrr10: 0.04485
+Recall20_b: 0.17245; Mrr20: 0.04888
+No improvement in Recall@10. Patience counter: 3/10
+--------------------
+Epoch 8/200
+--------------------
+Loss: 5.7444562911987305 Loss_diff 0.7243801951408386
+Recall3_b: 0.05162; Mrr3: 0.03464
+Recall5_b: 0.07394; Mrr5: 0.03967
+Recall10_b: 0.11532; Mrr10: 0.04507
+Recall20_b: 0.17295; Mrr20: 0.04901
+No improvement in Recall@10. Patience counter: 4/10
+--------------------
+Epoch 9/200
+--------------------
+Loss: 6.008517742156982 Loss_diff 0.7184469103813171
+Recall3_b: 0.05314; Mrr3: 0.03562
+Recall5_b: 0.07441; Mrr5: 0.04035
+Recall10_b: 0.11525; Mrr10: 0.04569
+Recall20_b: 0.17247; Mrr20: 0.04960
+No improvement in Recall@10. Patience counter: 5/10
+--------------------
+Epoch 10/200
+--------------------
+Loss: 5.921778678894043 Loss_diff 0.7132197618484497
+Recall3_b: 0.05252; Mrr3: 0.03486
+Recall5_b: 0.07427; Mrr5: 0.03978
+Recall10_b: 0.11348; Mrr10: 0.04496
+Recall20_b: 0.17370; Mrr20: 0.04912
+No improvement in Recall@10. Patience counter: 6/10
+--------------------
+Epoch 11/200
+--------------------
+Loss: 6.041957378387451 Loss_diff 0.7076292037963867
+Recall3_b: 0.05296; Mrr3: 0.03455
+Recall5_b: 0.07526; Mrr5: 0.03955
+Recall10_b: 0.11363; Mrr10: 0.04453
+Recall20_b: 0.17217; Mrr20: 0.04855
+No improvement in Recall@10. Patience counter: 7/10
+--------------------
+Epoch 12/200
+--------------------
+Loss: 6.169509410858154 Loss_diff 0.7022199034690857
+Recall3_b: 0.05225; Mrr3: 0.03511
+Recall5_b: 0.07314; Mrr5: 0.03982
+Recall10_b: 0.11447; Mrr10: 0.04517
+Recall20_b: 0.17235; Mrr20: 0.04911
+No improvement in Recall@10. Patience counter: 8/10
+--------------------
+Epoch 13/200
+--------------------
+Loss: 6.266326904296875 Loss_diff 0.6972318887710571
+Recall3_b: 0.05352; Mrr3: 0.03568
+Recall5_b: 0.07375; Mrr5: 0.04025
+Recall10_b: 0.11371; Mrr10: 0.04546
+Recall20_b: 0.17312; Mrr20: 0.04952
+No improvement in Recall@10. Patience counter: 9/10
+--------------------
+Epoch 14/200
+--------------------
+Loss: 5.4705586433410645 Loss_diff 0.6918799877166748
+Recall3_b: 0.05312; Mrr3: 0.03532
+Recall5_b: 0.07516; Mrr5: 0.04031
+Recall10_b: 0.11662; Mrr10: 0.04569
+Recall20_b: 0.17108; Mrr20: 0.04936
+New best Recall@10: 0.11662 at Epoch 14
+--------------------
+Epoch 15/200
+--------------------
+Loss: 5.965253829956055 Loss_diff 0.6869732737541199
+Recall3_b: 0.05419; Mrr3: 0.03598
+Recall5_b: 0.07384; Mrr5: 0.04034
+Recall10_b: 0.11420; Mrr10: 0.04559
+Recall20_b: 0.17347; Mrr20: 0.04965
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 16/200
+--------------------
+Loss: 6.563083171844482 Loss_diff 0.6814126372337341
+Recall3_b: 0.05285; Mrr3: 0.03544
+Recall5_b: 0.07404; Mrr5: 0.04026
+Recall10_b: 0.11705; Mrr10: 0.04588
+Recall20_b: 0.17382; Mrr20: 0.04978
+New best Recall@10: 0.11705 at Epoch 16
+--------------------
+Epoch 17/200
+--------------------
+Loss: 6.005169868469238 Loss_diff 0.6764866709709167
+Recall3_b: 0.05368; Mrr3: 0.03546
+Recall5_b: 0.07407; Mrr5: 0.04001
+Recall10_b: 0.11621; Mrr10: 0.04553
+Recall20_b: 0.17343; Mrr20: 0.04943
+No improvement in Recall@10. Patience counter: 1/10
+--------------------
+Epoch 18/200
+--------------------
+Loss: 6.207724571228027 Loss_diff 0.6717761754989624
+Recall3_b: 0.05246; Mrr3: 0.03421
+Recall5_b: 0.07381; Mrr5: 0.03907
+Recall10_b: 0.11557; Mrr10: 0.04456
+Recall20_b: 0.17279; Mrr20: 0.04844
+No improvement in Recall@10. Patience counter: 2/10
+--------------------
+Epoch 19/200
+--------------------
+Loss: 6.064979076385498 Loss_diff 0.6672688126564026
+Recall3_b: 0.05341; Mrr3: 0.03576
+Recall5_b: 0.07526; Mrr5: 0.04064
+Recall10_b: 0.11542; Mrr10: 0.04595
+Recall20_b: 0.17350; Mrr20: 0.04992
+No improvement in Recall@10. Patience counter: 3/10
+--------------------
+Epoch 20/200
+--------------------
+Loss: 6.448422908782959 Loss_diff 0.6624669432640076
+Recall3_b: 0.05303; Mrr3: 0.03506
+Recall5_b: 0.07374; Mrr5: 0.03970
+Recall10_b: 0.11636; Mrr10: 0.04525
+Recall20_b: 0.17070; Mrr20: 0.04893
+No improvement in Recall@10. Patience counter: 4/10
+--------------------
+Epoch 21/200
+--------------------
+Loss: 6.563791751861572 Loss_diff 0.6577311754226685
+Recall3_b: 0.05403; Mrr3: 0.03551
+Recall5_b: 0.07529; Mrr5: 0.04030
+Recall10_b: 0.11605; Mrr10: 0.04561
+Recall20_b: 0.17347; Mrr20: 0.04954
+No improvement in Recall@10. Patience counter: 5/10
+--------------------
+Epoch 22/200
+--------------------
+Loss: 5.282431602478027 Loss_diff 0.6530234813690186
+Recall3_b: 0.05323; Mrr3: 0.03504
+Recall5_b: 0.07450; Mrr5: 0.03991
+Recall10_b: 0.11559; Mrr10: 0.04525
+Recall20_b: 0.16987; Mrr20: 0.04899
+No improvement in Recall@10. Patience counter: 6/10
+--------------------
+Epoch 23/200
+--------------------
+Loss: 5.935302257537842 Loss_diff 0.6485940217971802
+Recall3_b: 0.05447; Mrr3: 0.03578
+Recall5_b: 0.07527; Mrr5: 0.04049
+Recall10_b: 0.11629; Mrr10: 0.04584
+Recall20_b: 0.17199; Mrr20: 0.04959
+No improvement in Recall@10. Patience counter: 7/10
+--------------------
+Epoch 24/200
+--------------------
+Loss: 5.597188472747803 Loss_diff 0.6439897418022156
+Recall3_b: 0.05329; Mrr3: 0.03529
+Recall5_b: 0.07435; Mrr5: 0.04005
+Recall10_b: 0.11614; Mrr10: 0.04546
+Recall20_b: 0.17366; Mrr20: 0.04937
+No improvement in Recall@10. Patience counter: 8/10
+--------------------
+Epoch 25/200
+--------------------
+Loss: 5.999948024749756 Loss_diff 0.6398769617080688
+Recall3_b: 0.05340; Mrr3: 0.03547
+Recall5_b: 0.07361; Mrr5: 0.03998
+Recall10_b: 0.11594; Mrr10: 0.04563
+Recall20_b: 0.17279; Mrr20: 0.04947
+No improvement in Recall@10. Patience counter: 9/10
+--------------------
+Epoch 26/200
+--------------------
+Loss: 4.887728214263916 Loss_diff 0.635265052318573
+Recall3_b: 0.05389; Mrr3: 0.03574
+Recall5_b: 0.07411; Mrr5: 0.04031
+Recall10_b: 0.11548; Mrr10: 0.04578
+Recall20_b: 0.17105; Mrr20: 0.04958
+No improvement in Recall@10. Patience counter: 10/10
+Early stopping triggered. Best Recall@10: 0.11705 at Epoch 16
+已完成训练，测试结果：
+=== Evaluation Metrics ===
+Recall @3 @5 @10 @20:
+0.0415
+0.0602
+0.0930
+0.1373
+NDCG @3 @5 @10 @20:
+0.0307
+0.0384
+0.0490
+0.0601
+MRR @3 @5 @10 @20:
+0.0270
+0.0313
+0.0356
+0.0386
+Total time cost: 2957.02 seconds.
