@@ -61,3 +61,8 @@
 - Cross-domain recommendation을 위한 KG embedding transfer 설계
 - 구조적 이질성과 의미 정합성 문제를 실험적으로 분석
 
+## 참고 git
+- 추천 도메인용 구조화된 방식으로 생성한 KG : https://github.com/WangYuhan-0520/Amazon-KG-v2.0-dataset.git
+- TransE 학습 및 생성 : https://github.com/thunlp/OpenKE.git
+- KG 기반 교차 도메인 추천 프레임워크 : https://github.com/WangYuhan-0520/KGBridge.git
+
