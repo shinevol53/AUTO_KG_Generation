@@ -15,6 +15,7 @@
 
 ## Architecture
 ![프로젝트 구조도](./img/AutomatedKG_Flow_3.drawio.png)
+* 회색 박스는 KGBridge 프레임워크 사용
 
 ## Multi-Agent KG Construction
 - Generator: RDF triple 후보 생성
